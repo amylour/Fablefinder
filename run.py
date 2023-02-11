@@ -72,5 +72,6 @@ print("Generating...")
 char_class = random.choice(char_classes)
 print("Class:", char_class)
 
+print(f"Ah... a {char_class}", user_input_race.capitalize(), "... I haven't seen one of those before.")
 
 
