@@ -11,6 +11,12 @@ race = random.choice(races)
 char_classes = ['Barbarian', 'Cleric', 'Druid', 'Fighter',
                 'Ranger', 'Wizard', 'Rogue']
 
+hair_color = ['black', 'red', 'green', 'blonde', 'mousy brown', 'purple',
+              'silver']
+hair_style = ['straight', 'curly', 'wavy', 'braided', 'frazzled', 'slicked back']
+hair_length = ['crew cut', 'short', 'shoulder length', 'long', 'non-existent']
+
+
 
 # Start of program
 def start_program():
@@ -46,8 +52,8 @@ create_new_char()
 
 user_input_race = input("Please enter your choice...\n")
 if user_input_race == "Random" or user_input_race == "random":
-    race = random.choice(races)
-    print("Race:", race)
+    random_race = random.choice(races)
+    print("Race:", random_race.capitalize())
 else:
     if user_input_race in races:
         print(f"You have chosen: {user_input_race.capitalize()}\n")
@@ -81,3 +87,4 @@ print("Class:", char_class)
 
 print(f"Ah... a {char_class}", user_input_race.capitalize(),
       "... I haven't seen one of those before.")
+
