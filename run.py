@@ -6,24 +6,25 @@ races = ['Human', 'human', 'Elf', 'elf', 'Dwarf', 'dwarf', 'Orc', 'orc', 'Goblin
          'Cyborg', 'cyborg', 'Werewolf', 'werewolf', 'Vampire', 'vampire', 'Giant', 'giant', 'Dragonborn', 'dragonborn']
 race = random.choice(races)
 
-char_classes = ['Barbarian', 'barbarian', 'Cleric', 'cleric', 'Druid', 'druid', 'Fighter', 'fighter']
+char_classes = ['Barbarian','Cleric','Druid','Fighter', 'Ranger', 'Wizard', 'Rogue']
+
 
   
 # Start of program
 def start_program():
-    print("Welcome to Fantasy RPG Character Generator!")
+    print("Welcome to Fantasy RPG Character Generator!\n")
     new_input = input("Create a new character? Please type 'Yes' or 'No'.\n")
     if new_input == "Yes" or new_input == "yes":
         print("Okay! Let's make a new character!")
     elif new_input =="No" or new_input == "no":
         print("That's a shame, maybe next time?")
+        start_program()
     else:
         print("That's not an answer I was expecting, please start again.\n")
         start_program()
 
 
 start_program()
-
 
 def create_new_char():
     print("""
@@ -35,22 +36,25 @@ def create_new_char():
         *Werewolf     *Vampire    *Giant
         *Dragonborn   *Random
         """)
-    new_input = input("Please enter your choice...\n")
-    if new_input == "Random" or new_input == "random":
-        race = random.choice(races)
-        print("Race:", race)
-    else:
-        if new_input in races:
-            print(f"You have chosen: {new_input.capitalize()}\n")
-        elif new_input not in races:
-            print("""
-                That's a new one! Never heard of that!
-                But do please choose from the list... 
-                """)
-            create_new_char()
 
 
 create_new_char()
+
+
+user_input_race = input("Please enter your choice...\n")
+if user_input_race == "Random" or user_input_race == "random":
+    race = random.choice(races)
+    print("Race:", race)
+else:
+    if user_input_race in races:
+        print(f"You have chosen: {user_input_race.capitalize()}\n")
+    elif user_input_race not in races:
+        print("""
+            That's a new one! Never heard of that!
+            But do please choose from the list... 
+            """)
+        create_new_char()
+
 
 def assign_random_name():
     vowels = "aeiou"
@@ -63,11 +67,11 @@ def assign_random_name():
     
     
 new_name = assign_random_name()
-print("Let me randomly choose your new name! Welcome:", new_name)
+print("Let me bestow upon you a new name! Welcome:", new_name,"!\n")
 
 
-print(f"Ok {new_name}, lets choose a class for you...\n")
-print("Generating...")
+print(f"Ok {new_name}, let me choose a class for you...\n")
+print("Pondering...\n")
 
 char_class = random.choice(char_classes)
 print("Class:", char_class)
