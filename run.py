@@ -7,4 +7,5 @@ race = random.choice(races)
    
 # Start of program
     elif new_input =="No" or new_input == "no":
+        *Werewolf     *Vampire    *Giant
 
