@@ -6,6 +6,8 @@ races = ['Human', 'human', 'Elf', 'elf', 'Dwarf', 'dwarf', 'Orc', 'orc', 'Goblin
          'Cyborg', 'cyborg', 'Werewolf', 'werewolf', 'Vampire', 'vampire', 'Giant', 'giant', 'Dragonborn', 'dragonborn']
 race = random.choice(races)
 
+char_classes = ['Barbarian', 'barbarian', 'Cleric', 'cleric', 'Druid', 'druid', 'Fighter', 'fighter']
+
   
 # Start of program
 def start_program():
@@ -64,7 +66,11 @@ new_name = assign_random_name()
 print("Let me randomly choose your new name! Welcome:", new_name)
 
 
+print(f"Ok {new_name}, lets choose a class for you...\n")
+print("Generating...")
 
+char_class = random.choice(char_classes)
+print("Class:", char_class)
 
 
 
