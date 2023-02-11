@@ -1,9 +1,7 @@
 import random
 
 
-#Character details
-races = ['Human', 'human', 'Elf', 'elf', 'Dwarf', 'dwarf', 'Orc', 'orc', 'Goblin', 'goblin', 
-         'Cyborg', 'cyborg', 'Werewolf', 'werewolf', 'Vampire', 'vampire', 'Giant', 'giant', 'Dragonborn', 'dragonborn']
+         'Goblin', 'goblin', 'Cyborg', 'cyborg', 'Werewolf', 'werewolf',
 race = random.choice(races)
 
 char_classes = ['Barbarian','Cleric','Druid','Fighter', 'Ranger', 'Wizard', 'Rogue']
