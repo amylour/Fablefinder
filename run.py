@@ -114,11 +114,13 @@ if user_input_looks == 'Yes' or user_input_looks == 'yes':
 
     char_body = random.choice(char_height) + ', ' + random.choice(char_build)
     print(f"What a {char_body} body you have!\n")
+elif user_input_looks == 'No' or user_input_looks == 'no':
+    print("I suppose it's nice to feel mysterious.\n")
 
 
 print("Next, it is important to discover your Alignment in this world.")
-user_input_align = input(f"{new_name}, we must channel energy from this crystal for answers.\n"
-                          "Are you holding out your hand? Yes or no?")
+print(f"{new_name}, we must channel energy from a crystal for answers.\n")
+user_input_align = input("Are you holding out your hand? Yes or no?\n")                         
 if user_input_align == 'Yes' or user_input_align == 'yes':
     char_align = random.choice(char_alignment)
     print(f"It would look like, {new_name}, that you are {char_align}!\n")
@@ -155,38 +157,38 @@ def roll_dice():
 
 user_input_stats = input("Would you like to discover your stats?\n")
 
-if user_input_stats == 'Yes' or user_input_stats == 'yes':
-    user_input_dice = input(f"Firstly {new_name}, before we roll, please choose your dice colour.\n"
-                            "Would you like to choose Green or Blue?\n")
-    def dice_colour():
-        if user_input_dice == "Green" or user_input_dice == "green":
-            print("Green it is, let's roll for your Strength.")
-            roll_dice()
-            if roll_dice() >= 20:
-                print(f"You have rolled a {roll_dice()}, this will work in your favour.")
+def start_stats():
+    if user_input_stats == 'Yes' or user_input_stats == 'yes':
+        user_input_dice = input(f"Firstly {new_name}, before we roll, please choose your dice colour.\n"
+                                "Would you like to choose Green or Blue?\n")
+        def dice_colour():
+            if user_input_dice == "Green" or user_input_dice == "green":
+                print("Green it is, let's roll for your Strength.")
+                roll_dice()
+                if roll_dice() >= 20:
+                    print(f"You have rolled a {roll_dice()}, this will work in your favour.")
+                else:
+                    print(f"You have rolled a {roll_dice()}, you may need to work harder.")
+            elif user_input_dice == "Blue" or user_input_dice == "blue":
+                print("Blue, a good choice, let's roll for your Strength.")
+                roll_dice()
+                if roll_dice() >= 20:
+                    print(f"You have rolled {roll_dice()}, not a bad roll.")
+                else:
+                    print(f"You have rolled {roll_dice()}, I would suggest good armour.")
             else:
-                print(f"You have rolled a {roll_dice()}, you may need to work harder.")
-        elif user_input_dice == "Blue" or user_input_dice == "blue":
-            print("Blue, a good choice, let's roll for your Strength.")
-            roll_dice()
-            if roll_dice() >= 20:
-                print(f"You have rolled {roll_dice()}, not a bad roll.")
-            else:
-                print(f"You have rolled {roll_dice()}, I would suggest good armour.")
-        else:
-            print("That was not an option, please be more careful. I will now choose the Blue dice for you...\n")
-            roll_dice()
-            if roll_dice() >= 20:
-                print(f"{roll_dice()}, you have luck in your favour")
-            else:
-                print(f"{roll_dice()}, quite low, you should choose more wisely next time.")
-                           
-                
-    
-                             
-else:
-    print("WRONG")    
-            
+                print("That was not an option, please be more careful. I will now choose the Blue dice for you...\n")
+                roll_dice()
+                if roll_dice() >= 20:
+                    print(f"{roll_dice()}, you have luck in your favour")
+                else:
+                    print(f"{roll_dice()}, quite low, you should choose more wisely next time.")                            
+    else:
+        print(f"Not a good decision {new_name}. I strongly advise that you say yes.")
+        start_stats()
 
+           
+
+start_stats()
 dice_colour()
 
