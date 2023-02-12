@@ -20,7 +20,7 @@ hair_length = ['crew cut', 'short', 'shoulder length', 'long', 'non-existent']
 
 # Start of program
 def start_program():
-    print("Welcome to Fantasy RPG Character Generator!\n")
+    print("Welcome to Fablefinder\n")
     new_input = input("Create a new character? Please type 'Yes' or 'No'.\n")
     if new_input == "Yes" or new_input == "yes":
         print("Okay! Let's make a new character!")
@@ -87,4 +87,55 @@ print("Class:", char_class)
 
 print(f"Ah... a {char_class}", user_input_race.capitalize(),
       "... I haven't seen one of those before.")
+
+
+# Dice rolling function using 4, 6 sided dice. 
+# Add the 3 highest numbers to get stats values.
+def roll_dice():
+    dice = []
+    for i in range(4):
+        dice.append(random.randrange(1, 7))
+
+    total = 0
+    lowest = dice[0]
+
+    for num in dice:
+        if num < lowest:
+            lowest = num
+
+    for num in dice:
+        total += num
+
+    return total - lowest
+
+
+user_input_stats = input("Would you like to know your stats?\n")
+
+if user_input_stats == 'Yes' or user_input_stats == 'yes':
+    user_input_dice = input("First, before we roll, please choose your dice colour.\n"
+                            "Would you like to choose Green or Blue?\n")
+    def dice_colour():
+        if user_input_dice == "Green" or user_input_dice == "green":
+            print("Green it is, let's roll for your Strength.")
+            roll_dice()
+            if roll_dice() >= 20:
+                print(f"You have rolled a {roll_dice()}, this will work in your favour.")
+            else:
+                print(f"You have rolled a {roll_dice()}, you may need to work harder.")
+        elif user_input_dice == "Blue" or user_input_dice == "blue":
+            print("Blue, a good choice, let's roll for your Strength.")
+            roll_dice()
+            if roll_dice() >= 20:
+                print(f"You have rolled a {roll_dice()}, not a bad roll.")
+            else:
+                print(f"You have rolled a {roll_dice()}, I would suggest good armour.")
+        else:
+            print("That was not an option, please be more careful, this is important...\n")
+            
+            dice_colour()      
+else:
+    print("WRONG")    
+            
+
+dice_colour()
 
