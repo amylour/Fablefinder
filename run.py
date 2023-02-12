@@ -130,9 +130,15 @@ if user_input_stats == 'Yes' or user_input_stats == 'yes':
             else:
                 print(f"You have rolled a {roll_dice()}, I would suggest good armour.")
         else:
-            print("That was not an option, please be more careful, this is important...\n")
-            
-            dice_colour()      
+            print("That was not an option, please be more careful, I will now choose the Blue dice for you...\n")
+            roll_dice()
+            if roll_dice() >= 20:
+                print(f"{roll_dice()}, you have luck in your favour")
+            else:
+                print(f"{roll_dice()}, quite low, you should choose more wisely next time.")
+                           
+                
+    
 else:
     print("WRONG")    
             
