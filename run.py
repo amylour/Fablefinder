@@ -9,9 +9,9 @@ races = ['Human', 'human', 'Elf', 'elf', 'Dwarf', 'dwarf', 'Orc', 'orc',
 race = random.choice(races)
 
 char_classes = ['Barbarian', 'Cleric', 'Druid', 'Fighter',
-                'Ranger', 'Wizard', 'Rogue']
+                'Ranger', 'Wizard', 'Rogue', 'Paladin', 'Warlock', 'Bard']
 
-hair_color = ['black', 'red', 'green', 'blonde', 'mousy brown', 'purple',
+hair_colour = ['black', 'red', 'green', 'blonde', 'mousy brown', 'purple',
               'silver']
 hair_style = ['straight', 'curly', 'wavy', 'braided', 'frazzled', 'slicked back']
 hair_length = ['crew cut', 'short', 'shoulder length', 'long', 'non-existent']
@@ -20,7 +20,9 @@ hair_length = ['crew cut', 'short', 'shoulder length', 'long', 'non-existent']
 
 # Start of program
 def start_program():
-    print("Welcome to Fablefinder\n")
+    print("*********************************************\n")
+    print("         Welcome to Fablefinder\n")
+    print("*********************************************\n")
     new_input = input("Create a new character? Please type 'Yes' or 'No'.\n")
     if new_input == "Yes" or new_input == "yes":
         print("Okay! Let's make a new character!")
@@ -83,10 +85,23 @@ print(f"Ok {new_name}, let me choose a class for you...\n")
 print("Pondering...\n")
 
 char_class = random.choice(char_classes)
-print("Class:", char_class)
+print("Your class is:", char_class)
 
-print(f"Ah... a {char_class}", user_input_race.capitalize(),
+if user_input_race == "Random" or user_input_race == "random":
+    print(f"Ah... a {char_class}", random_race.capitalize(),
       "... I haven't seen one of those before.")
+elif user_input_race in races:
+    print(f"Ah... a {char_class}", user_input_race.capitalize(),
+           "... I haven't seen one of those before.")
+
+
+user_input_looks = input(f"Ok {new_name}, would you like to see what you look like?\n")
+if user_input_looks == 'Yes' or user_input_looks == 'yes':
+    char_hair = random.choice(hair_style) + ', ' + random.choice(hair_colour)
+    print(f"It looks like you have {char_hair} hair.")
+
+
+
 
 
 # Dice rolling function using 4, 6 sided dice. 
@@ -109,10 +124,10 @@ def roll_dice():
     return total - lowest
 
 
-user_input_stats = input("Would you like to know your stats?\n")
+user_input_stats = input("Would you like to discover your stats?\n")
 
 if user_input_stats == 'Yes' or user_input_stats == 'yes':
-    user_input_dice = input("First, before we roll, please choose your dice colour.\n"
+    user_input_dice = input(f"Firstly {new_name}, before we roll, please choose your dice colour.\n"
                             "Would you like to choose Green or Blue?\n")
     def dice_colour():
         if user_input_dice == "Green" or user_input_dice == "green":
@@ -126,11 +141,11 @@ if user_input_stats == 'Yes' or user_input_stats == 'yes':
             print("Blue, a good choice, let's roll for your Strength.")
             roll_dice()
             if roll_dice() >= 20:
-                print(f"You have rolled a {roll_dice()}, not a bad roll.")
+                print(f"You have rolled {roll_dice()}, not a bad roll.")
             else:
-                print(f"You have rolled a {roll_dice()}, I would suggest good armour.")
+                print(f"You have rolled {roll_dice()}, I would suggest good armour.")
         else:
-            print("That was not an option, please be more careful, I will now choose the Blue dice for you...\n")
+            print("That was not an option, please be more careful. I will now choose the Blue dice for you...\n")
             roll_dice()
             if roll_dice() >= 20:
                 print(f"{roll_dice()}, you have luck in your favour")
@@ -139,6 +154,7 @@ if user_input_stats == 'Yes' or user_input_stats == 'yes':
                            
                 
     
+                             
 else:
     print("WRONG")    
             
