@@ -14,7 +14,15 @@ char_classes = ['Barbarian', 'Cleric', 'Druid', 'Fighter',
 hair_colour = ['black', 'red', 'green', 'blonde', 'mousy brown', 'purple',
               'silver']
 hair_style = ['straight', 'curly', 'wavy', 'braided', 'frazzled', 'slicked back']
-hair_length = ['crew cut', 'short', 'shoulder length', 'long', 'non-existent']
+hair_length = ['short', 'shoulder length', 'long']
+
+char_alignment = ['Lawful good', 'Neutral good', 'Chaotic good', 'Lawful neutral',
+                  'Neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil']
+
+eye_colour = ['wistful blue', 'cavernous green', 'piercing black', 'honest brown', 'mysterious p']
+
+char_height = ['short', 'regular', 'tall', 'towering']
+char_build = ['stocky', 'thin', 'wirey', 'imposing', 'muscular', 'soft']
 
 
 
@@ -95,10 +103,31 @@ elif user_input_race in races:
            "... I haven't seen one of those before.")
 
 
-user_input_looks = input(f"Ok {new_name}, would you like to see what you look like?\n")
+user_input_looks = input(f"Ok {new_name}, would you like to see what you look like?\n"
+                           "Please choose 'yes' or 'no'.\n")
 if user_input_looks == 'Yes' or user_input_looks == 'yes':
-    char_hair = random.choice(hair_style) + ', ' + random.choice(hair_colour)
-    print(f"It looks like you have {char_hair} hair.")
+    char_hair = random.choice(hair_length) + ', ' + random.choice(hair_style) + ', ' + random.choice(hair_colour)
+    print(f"It looks like you have {char_hair} hair.\n")
+
+    char_eyes = random.choice(eye_colour)
+    print(f"You have eyes that are {char_eyes}.\n")
+
+    char_body = random.choice(char_height) + ', ' + random.choice(char_build)
+    print(f"What a {char_body} body you have!\n")
+
+
+print("Next, it is important to discover your Alignment in this world.")
+user_input_align = input(f"{new_name}, we must channel energy from this crystal for answers.\n"
+                          "Are you holding out your hand? Yes or no?")
+if user_input_align == 'Yes' or user_input_align == 'yes':
+    char_align = random.choice(char_alignment)
+    print(f"It would look like, {new_name}, that you are {char_align}!\n")
+
+#align_explain = input(f"{new_name}, would you like me to explain this more?\n")
+#if align_explain == 'Yes' or align_explain == 'yes':
+    #print(f"{align_def}")
+# create dictionary of key value pairs for alignment
+
 
 
 
