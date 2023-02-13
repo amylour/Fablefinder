@@ -135,10 +135,6 @@ if user_input_align == 'Yes' or user_input_align == 'yes':
 # create dictionary of key value pairs for alignment
 
 
-
-
-
-
 # Dice rolling function using 4, 6 sided dice. 
 # Add the 3 highest numbers to get stats values.
 def roll_dice():
@@ -159,35 +155,75 @@ def roll_dice():
     return total - lowest
 
 
-print("Moving on, let us discover your stats.\n")
+print("Moving on, let us discover your Ability scores...\n")
 
 user_input_dice = input(f"{new_name}, before we roll, please choose your dice colour.\n"
                         "Would you like to choose Green or Blue?\n")
 def dice_colour():
     if user_input_dice == "Green" or user_input_dice == "green":
         print("Green it is, let's roll for your Strength.")
-        roll_dice()
-        if roll_dice() >= 13:
-            print(f"You have rolled a {roll_dice()}, this will work in your favour.")
+        char_strength = roll_dice()
+        if char_strength >= 13:
+            print(f"You have rolled {char_strength}, this will work in your favour.\n")
         else:
-            print(f"You have rolled a {roll_dice()}, you may need to work harder.")
+            print(f"You have rolled {char_strength}, you may need to work harder.\n")
     elif user_input_dice == "Blue" or user_input_dice == "blue":
         print("Blue, a good choice, let's roll for your Strength.")
-        roll_dice()
-        if roll_dice() >= 13:
-            print(f"You have rolled {roll_dice()}, not a bad roll.")
+        char_strength = roll_dice()
+        if char_strength >= 13:
+            print(f"You have rolled {char_strength}, not a bad roll.\n")
         else:
-            print(f"You have rolled {roll_dice()}, I would suggest good armour.")
+            print(f"You have rolled {char_strength}, I would suggest good armour.\n")
     else:
         print("That was not an option, please be more careful. I will now choose the Blue dice for you...\n")
-        roll_dice()
-        if roll_dice() >= 13:
-            print(f"{roll_dice()}, you have luck in your favour")
+        char_strength = roll_dice()
+        if char_strength >= 13:
+            print(f"{char_strength}, you have luck in your favour.\n")
         else:
-            print(f"{roll_dice()}, quite low, you should choose more wisely next time.")                            
+            print(f"{char_strength}, quite low, you should choose more wisely next time.\n")                            
 
           
 dice_colour()
+
+
+print("Next we roll for your Dexterity...\n")
+char_dex = roll_dice()
+if char_dex >= 13:
+    print(f"You have rolled {char_dex}, what an advantage.\n")
+else:
+    print(f"you have rolled {char_dex}, you must stay alert at all times.\n")
+
+
+print("On to your roll for Constitution...\n")
+char_con = roll_dice()
+if char_con >= 13:
+    print(f"You have rolled {char_con}, you will endure.\n")
+else:
+    print(f"you have rolled {char_con}, take heed of your energy.\n")
+
+
+print(f"{new_name}, what think you of your Intelligence..?\n")
+char_intel = roll_dice()
+if char_intel >= 13:
+    print(f"You have rolled {char_intel}, you will not be outsmarted.\n")
+else:
+    print(f"you have rolled {char_intel}, be sure in your answers.\n")
+
+
+print("The penultimate, we roll for Wisdom...\n")
+char_wis = roll_dice()
+if char_wis >= 13:
+    print(f"You have rolled {char_wis}, others will look to you.\n")
+else:
+    print(f"you have rolled {char_wis}, best to always take stock of the situation.\n")
+
+
+print("Finally, we roll for Charisma...\n")
+char_car = roll_dice()
+if char_car >= 13:
+    print(f"You have rolled {char_car}, a natural way about you, there is.\n")
+else:
+    print(f"you have rolled {char_car}, good luck with that.\n")
 
 
 
