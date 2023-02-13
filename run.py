@@ -197,7 +197,7 @@ char_dex = roll_dice()
 if char_dex >= 13:
     print(f"You have rolled {char_dex}, what an advantage.\n")
 else:
-    print(f"you have rolled {char_dex}, you must stay alert at all times.\n")
+    print(f"You have rolled {char_dex}, you must stay alert at all times.\n")
 
 
 print("On to your roll for Constitution...\n")
@@ -205,7 +205,7 @@ char_con = roll_dice()
 if char_con >= 13:
     print(f"You have rolled {char_con}, you will endure.\n")
 else:
-    print(f"you have rolled {char_con}, take heed of your energy.\n")
+    print(f"You have rolled {char_con}, take heed of your energy.\n")
 
 
 print(f"{new_name}, what think you of your Intelligence..?\n")
@@ -213,7 +213,7 @@ char_intel = roll_dice()
 if char_intel >= 13:
     print(f"You have rolled {char_intel}, you will not be outsmarted.\n")
 else:
-    print(f"you have rolled {char_intel}, be sure in your answers.\n")
+    print(f"You have rolled {char_intel}, be sure in your answers.\n")
 
 
 print("The penultimate, we roll for Wisdom...\n")
@@ -221,7 +221,7 @@ char_wis = roll_dice()
 if char_wis >= 13:
     print(f"You have rolled {char_wis}, others will look to you.\n")
 else:
-    print(f"you have rolled {char_wis}, best to always take stock of the situation.\n")
+    print(f"You have rolled {char_wis}, best to always take stock of the situation.\n")
 
 
 print("Finally, we roll for Charisma...\n")
@@ -229,7 +229,7 @@ char_car = roll_dice()
 if char_car >= 13:
     print(f"You have rolled {char_car}, a natural way about you, there is.\n")
 else:
-    print(f"you have rolled {char_car}, good luck with that.\n")
+    print(f"You have rolled {char_car}, good luck with that.\n")
 
 
 
