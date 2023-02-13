@@ -100,10 +100,10 @@ print("Your class is:", char_class)
 
 
 if user_input_race == "Random" or user_input_race == "random":
-    print(f"Ah... a {char_class}", random_race.capitalize(),
+    print(f"Ah... {random_race.capitalize()}", char_class, 
       "... I haven't seen one of those before.")
 elif user_input_race in races:
-    print(f"Ah... a {char_class}", user_input_race.capitalize(),
+    print(f"Ah... {user_input_race.capitalize()}", char_class,
            "... I haven't seen one of those before.")
 
 
@@ -190,8 +190,6 @@ def dice_colour():
 dice_colour()
 
 
-           
 
-start_stats()
-dice_colour()
+
 
