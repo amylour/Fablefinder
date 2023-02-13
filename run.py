@@ -106,20 +106,25 @@ elif user_input_race in races:
     print(f"Ah... {user_input_race.capitalize()}", char_class,
            "... I haven't seen one of those before.")
 
+while True:
+    user_input_looks = input(f"Ok {new_name}, would you like to see what you look like?\n"
+                            "Please choose 'yes' or 'no'.\n")
+    if user_input_looks == 'Yes' or user_input_looks == 'yes':
+        char_hair = random.choice(hair_length) + ', ' + random.choice(hair_style) + ', ' + random.choice(hair_colour)
+        print(f"It looks like you have {char_hair} hair.\n")
 
-user_input_looks = input(f"Ok {new_name}, would you like to see what you look like?\n"
-                           "Please choose 'yes' or 'no'.\n")
-if user_input_looks == 'Yes' or user_input_looks == 'yes':
-    char_hair = random.choice(hair_length) + ', ' + random.choice(hair_style) + ', ' + random.choice(hair_colour)
-    print(f"It looks like you have {char_hair} hair.\n")
+        char_eyes = random.choice(eye_colour)
+        print(f"You have eyes that are {char_eyes}.\n")
 
-    char_eyes = random.choice(eye_colour)
-    print(f"You have eyes that are {char_eyes}.\n")
-
-    char_body = random.choice(char_height) + ', ' + random.choice(char_build)
-    print(f"What a {char_body} body you have!\n")
-elif user_input_looks == 'No' or user_input_looks == 'no':
-    print("I suppose it's nice to feel mysterious.\n")
+        char_body = random.choice(char_height) + ', ' + random.choice(char_build)
+        print(f"What a {char_body} body you have!\n")
+        break
+    elif user_input_looks == 'No' or user_input_looks == 'no':
+        print("I suppose it's nice to feel mysterious.\n")
+        break
+    else:
+        print("What was that? You weren't very clear.\n")
+        continue
 
 
 print("Next, it is important to discover your Alignment in this world.")
@@ -128,7 +133,8 @@ user_input_align = input("Are you holding out your hand? Yes or no?\n")
 if user_input_align == 'Yes' or user_input_align == 'yes':
     char_align = random.choice(char_alignment)
     print(f"It would look like, {new_name}, that you are {char_align}!\n")
-
+else:
+    print(f"Em, {new_name}, please pay more attention...\n")
 #align_explain = input(f"{new_name}, would you like me to explain this more?\n")
 #if align_explain == 'Yes' or align_explain == 'yes':
     #print(f"{align_def}")
