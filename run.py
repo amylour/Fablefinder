@@ -12,18 +12,21 @@ char_classes = ['Barbarian', 'Cleric', 'Druid', 'Fighter',
                 'Ranger', 'Wizard', 'Rogue', 'Paladin', 'Warlock', 'Bard']
 
 hair_colour = ['black', 'red', 'green', 'blonde', 'mousy brown', 'purple',
-              'silver']
-hair_style = ['straight', 'curly', 'wavy', 'braided', 'frazzled', 'slicked back']
+               'silver']
+hair_style = ['straight', 'curly', 'wavy', 'braided', 'frazzled',
+              'slicked-back']
+
 hair_length = ['short', 'shoulder length', 'long']
 
-char_alignment = ['Lawful good', 'Neutral good', 'Chaotic good', 'Lawful neutral',
-                  'Neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil']
+char_alignment = ['Lawful good', 'Neutral good', 'Chaotic good',
+                  'Lawful neutral', 'Neutral', 'Chaotic neutral',
+                  'Lawful evil', 'Neutral evil', 'Chaotic evil']
 
-eye_colour = ['wistful blue', 'cavernous green', 'piercing black', 'honest brown', 'mysterious p']
+eye_colour = ['wistful blue', 'cavernous green', 'piercing black',
+              'honest brown', 'mysterious purple']
 
 char_height = ['short', 'regular', 'tall', 'towering']
 char_build = ['stocky', 'thin', 'wirey', 'imposing', 'muscular', 'soft']
-
 
 
 # Start of program
@@ -75,7 +78,7 @@ while True:
                 But do please choose from the list...
                 """)
             continue
-        
+
 
 def assign_random_name():
     vowels = "aeiou"
@@ -98,25 +101,27 @@ char_class = random.choice(char_classes)
 print("Your class is:", char_class)
 
 
-
 if user_input_race == "Random" or user_input_race == "random":
-    print(f"Ah... {random_race.capitalize()}", char_class, 
-      "... I haven't seen one of those before.")
+    print(f"Ah... {random_race.capitalize()}", char_class,
+          "... I haven't seen one of those before.")
 elif user_input_race in races:
     print(f"Ah... {user_input_race.capitalize()}", char_class,
-           "... I haven't seen one of those before.")
+          "... I haven't seen one of those before.")
 
 while True:
-    user_input_looks = input(f"Ok {new_name}, would you like to see what you look like?\n"
-                            "Please choose 'yes' or 'no'.\n")
+    user_input_looks = input(f"Ok {new_name}, would you like to see"
+                             " what you look like?\n"
+                             "Please choose 'yes' or 'no'.\n")
     if user_input_looks == 'Yes' or user_input_looks == 'yes':
         char_hair = random.choice(hair_length) + ', ' + random.choice(hair_style) + ', ' + random.choice(hair_colour)
+
         print(f"It looks like you have {char_hair} hair.\n")
 
         char_eyes = random.choice(eye_colour)
         print(f"You have eyes that are {char_eyes}.\n")
 
         char_body = random.choice(char_height) + ', ' + random.choice(char_build)
+
         print(f"What a {char_body} body you have!\n")
         break
     elif user_input_looks == 'No' or user_input_looks == 'no':
@@ -129,19 +134,19 @@ while True:
 
 print("Next, it is important to discover your Alignment in this world.")
 print(f"{new_name}, we must channel energy from a crystal for answers.\n")
-user_input_align = input("Are you holding out your hand? Yes or no?\n")                         
+user_input_align = input("Are you holding out your hand? Yes or no?\n")
 if user_input_align == 'Yes' or user_input_align == 'yes':
     char_align = random.choice(char_alignment)
     print(f"It would look like, {new_name}, that you are {char_align}!\n")
 else:
     print(f"Em, {new_name}, please pay more attention...\n")
-#align_explain = input(f"{new_name}, would you like me to explain this more?\n")
-#if align_explain == 'Yes' or align_explain == 'yes':
-    #print(f"{align_def}")
+# align_explain = input(f"{new_name}, would you like me to explain this more?\n")
+# if align_explain == 'Yes' or align_explain == 'yes':
+    # print(f"{align_def}")
 # create dictionary of key value pairs for alignment
 
 
-# Dice rolling function using 4, 6 sided dice. 
+# Dice rolling function using 4, 6 sided dice.
 # Add the 3 highest numbers to get stats values.
 def roll_dice():
     dice = []
@@ -157,38 +162,45 @@ def roll_dice():
 
     for num in dice:
         total += num
-
     return total - lowest
 
 
 print("Moving on, let us discover your Ability scores...\n")
 
-user_input_dice = input(f"{new_name}, before we roll, please choose your dice colour.\n"
+user_input_dice = input(f"{new_name}, before we roll, please choose"
+                        " your dice colour.\n"
                         "Would you like to choose Green or Blue?\n")
+
+
 def dice_colour():
     if user_input_dice == "Green" or user_input_dice == "green":
         print("Green it is, let's roll for your Strength.")
         char_strength = roll_dice()
         if char_strength >= 13:
-            print(f"You have rolled {char_strength}, this will work in your favour.\n")
+            print(f"You have rolled {char_strength}, this will work"
+                  " in your favour.\n")
         else:
-            print(f"You have rolled {char_strength}, you may need to work harder.\n")
+            print(f"You have rolled {char_strength}, you may need"
+                  "to work harder.\n")
     elif user_input_dice == "Blue" or user_input_dice == "blue":
         print("Blue, a good choice, let's roll for your Strength.")
         char_strength = roll_dice()
         if char_strength >= 13:
             print(f"You have rolled {char_strength}, not a bad roll.\n")
         else:
-            print(f"You have rolled {char_strength}, I would suggest good armour.\n")
+            print(f"You have rolled {char_strength}, I would suggest"
+                  "good armour.\n")
     else:
-        print("That was not an option, please be more careful. I will now choose the Blue dice for you...\n")
+        print("That was not an option, please be more careful. I will now"
+              " choose the Blue dice for you...\n")
         char_strength = roll_dice()
         if char_strength >= 13:
             print(f"{char_strength}, you have luck in your favour.\n")
         else:
-            print(f"{char_strength}, quite low, you should choose more wisely next time.\n")                            
+            print(f"{char_strength}, quite low, you should choose more wisely"
+                  "next time.\n")
 
-          
+
 dice_colour()
 
 
@@ -221,7 +233,8 @@ char_wis = roll_dice()
 if char_wis >= 13:
     print(f"You have rolled {char_wis}, others will look to you.\n")
 else:
-    print(f"You have rolled {char_wis}, best to always take stock of the situation.\n")
+    print(f"You have rolled {char_wis}, best to always take stock of"
+          "the situation.\n")
 
 
 print("Finally, we roll for Charisma...\n")
@@ -230,8 +243,3 @@ if char_car >= 13:
     print(f"You have rolled {char_car}, a natural way about you, there is.\n")
 else:
     print(f"You have rolled {char_car}, good luck with that.\n")
-
-
-
-
-
